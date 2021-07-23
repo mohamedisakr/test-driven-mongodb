@@ -11,5 +11,18 @@ mongoose.connect(uri, {
 });
 
 mongoose.connection
-  .once("open", () => console.log("Connected to MongoDB server successfully!"))
+  .once("open", (done) => {
+    () => done();
+  })
   .on("error", (error) => console.error(error));
+
+beforeEach((done) => {
+  mongoose.connection.collections.users.drop(() => {
+    done();
+  });
+});
+
+afterAll((done) => {
+  mongoose.disconnect();
+  return done();
+});

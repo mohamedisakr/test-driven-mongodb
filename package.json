@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --detectOpenHandles"
   },
   "keywords": [],
   "author": "",
@@ -20,7 +20,9 @@
     "verbose": true,
     "testURL": "http://localhost/",
     "testEnvironment": "node",
-    "setupTestFrameworkScriptFile": "<rootDir>/test-config.js",
+    "setupFilesAfterEnv": [
+      "<rootDir>/test-config.js"
+    ],
     "restoreMocks": true,
     "testPathIgnorePatterns": [
       "dist/"
