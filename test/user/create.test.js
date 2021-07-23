@@ -5,6 +5,7 @@ describe("creating user", () => {
   test("save a new user with save function", async () => {
     const newUser = new User({ name: "john" });
     await newUser.save();
+    expect(newUser.isNew).toBe(false);
   });
 
   test("user name should be unique", async () => {
