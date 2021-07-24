@@ -10,6 +10,7 @@ mongoose.connect(uri, {
   poolSize: 50,
   useUnifiedTopology: true,
   useCreateIndex: true,
+  useFindAndModify: false,
 });
 
 mongoose.connection
