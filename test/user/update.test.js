@@ -23,25 +23,28 @@ describe("updating user", () => {
   });
   */
 
-  test("user can increment his/her postCount -> update one", async () => {
-    // console.log(`The new user is ${newUser}`);
-    const id = newUser._id;
+  // test("user can increment his/her postCount -> update one", async () => {
+  //   // console.log(`The new user is ${newUser}`);
+  //   const id = newUser._id;
 
-    const user = await User.findByIdAndUpdate(
-      id,
-      { $set: { postCount: 10 } },
-      { new: true }
-    ).exec();
+  //   const user = await User.findByIdAndUpdate(
+  //     id,
+  //     { $set: { postCount: 10 } },
+  //     { new: true }
+  //   ).exec();
 
-    expect(user.postCount).toBe(10);
-  });
+  //   expect(user.postCount).toBe(10);
+  // });
 
   test("user can increment his/her postCount -> update many", async () => {
-    const result = await User.updateMany(
-      { name: "john" },
-      { $set: { postCount: 1 } }
+    const id = newUser._id;
+    const user = await User.findByIdAndUpdate(
+      id,
+      { $inc: { likes: 1 } },
+      { new: true }
     );
-    // console.log(users);
-    expect(result.nModified).toBe(1);
+    // console.log(user);
+    const { likes } = user;
+    expect(likes).toBe(1);
   });
 });

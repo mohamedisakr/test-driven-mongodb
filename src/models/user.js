@@ -12,12 +12,14 @@ const props = {
     required: [true, "Name is Required."],
     unique: true,
   },
-  postCount: { type: Number, default: 0 },
   posts: [postSchema],
+  likes: { type: Number, default: 0 },
 };
 
 const userSchema = new Schema(props, { timestamps: true });
+userSchema.virtual("postCount").get(function () {
+  return this.posts.length;
+});
 
 const User = mongoose.model("user", userSchema);
-
 module.exports = User;
