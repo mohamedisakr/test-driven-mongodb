@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const props = {
-  name: { type: String, required: true, unique: true },
+  name: { type: String, required: [true, "Name is Required."], unique: true },
   postCount: { type: Number, default: 0 },
 };
 
