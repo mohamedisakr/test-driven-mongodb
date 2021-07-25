@@ -36,4 +36,25 @@ describe("validating user", () => {
       expect(e).toBeTruthy();
     }
   });
+
+  test("Can not save invalid user -> using grider style", async () => {
+    const newUser = await new User({ name: "ab" });
+    try {
+      await newUser.save();
+    } catch (e) {
+      const validationError = newUser.validateSync();
+      const { message } = validationError.errors.name;
+      expect(message).toBe("Name must be longer than 2 characters.");
+    }
+  });
+
+  test("Prevent saving invalid user -> using moss style", async () => {
+    expect.assertions(1);
+
+    try {
+      await User.create({ name: "ab" });
+    } catch (e) {
+      expect(e).toBeTruthy();
+    }
+  });
 });
