@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 const props = {
   title: {
     type: String,
-    required: [true, "Title is Required."],
-    unique: true,
+    // required: [true, "Title is Required."],
+    // unique: true,
   },
 };
 
