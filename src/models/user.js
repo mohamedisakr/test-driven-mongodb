@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const postSchema = require("./post");
 
 const props = {
   name: {
@@ -12,6 +13,7 @@ const props = {
     unique: true,
   },
   postCount: { type: Number, default: 0 },
+  posts: [postSchema],
 };
 
 const userSchema = new Schema(props, { timestamps: true });
