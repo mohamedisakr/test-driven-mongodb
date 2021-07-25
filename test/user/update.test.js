@@ -29,10 +29,11 @@ describe("updating user", () => {
 
     const user = await User.findByIdAndUpdate(
       id,
-      { $set: { postCount: 1 } },
+      { $set: { postCount: 10 } },
       { new: true }
     ).exec();
-    expect(user.postCount).toBe(1);
+
+    expect(user.postCount).toBe(10);
   });
 
   test("user can increment his/her postCount -> update many", async () => {
