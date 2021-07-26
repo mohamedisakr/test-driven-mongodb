@@ -14,6 +14,12 @@ const props = {
   },
   posts: [postSchema],
   likes: { type: Number, default: 0 },
+  blogPosts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "blogPost",
+    },
+  ],
 };
 
 const userSchema = new Schema(props, { timestamps: true });
