@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-const postSchema = require("./post");
+const { Schema } = mongoose.Schema;
+// const postSchema = require("./post");
 
 const props = {
   name: {
