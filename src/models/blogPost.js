@@ -11,6 +11,12 @@ const props = {
     type: String,
     required: [true, "Content is Required."],
   },
+  comments: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "comment",
+    },
+  ],
 };
 
 const blogPostSchema = new Schema(props, { timestamps: true });
