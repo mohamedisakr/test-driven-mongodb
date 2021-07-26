@@ -12,7 +12,6 @@ const props = {
     required: [true, "Name is Required."],
     unique: true,
   },
-  posts: [postSchema],
   likes: { type: Number, default: 0 },
   blogPosts: [
     {
@@ -20,6 +19,7 @@ const props = {
       ref: "blogPost",
     },
   ],
+  // posts: [postSchema],
 };
 
 const userSchema = new Schema(props, { timestamps: true });
